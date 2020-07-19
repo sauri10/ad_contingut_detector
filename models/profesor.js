@@ -3,21 +3,20 @@ var validate = require('mongoose-validator')
 
 var validarDni = [
     validate({
-        validator: 'isLength',
-        arguments: [8, 9],
-        message: 'El DNI debe tener entre {ARGS[0]} y {ARGS[1]} caracteres'
+        validator: 'isNumeric',
+        message: 'El DNI debe contener solamente nÃºmeros',
     }),
     validate({
-        validator: 'isAlphanumeric',
-        //passIfEmpty: true, // Sirve para poder pasar la validación en caso de se la cadena sea vacia
-        message: 'El DNI debe contener solamente caracteres alfanuméricos'
-    }),
+        validator: 'isLength',
+        arguments: [8,9],
+        message: 'El DNI debe tener entre {ARGS[0]} y {ARGS[1]} caracteres',
+    })
 ]
 
 var validarEmail = [
     validate({
         validator: 'isEmail',
-        message: 'insertar una dirección de correo electrónico válida'
+        message: 'insertar una direcciï¿½n de correo electrï¿½nico vï¿½lida'
     })
 ]
 
@@ -33,7 +32,7 @@ const profesorSchema = new mongoose.Schema({
         required: false
     },
     dni: {
-        type: Number,
+        type: String,
         required: true,
         validate: validarDni
     },
@@ -43,3 +42,5 @@ const profesorSchema = new mongoose.Schema({
         validate: validarEmail
     }
 })
+
+module.exports = mongoose.model('profesor', profesorSchema)

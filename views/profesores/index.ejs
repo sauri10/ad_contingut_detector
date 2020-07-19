@@ -1,1 +1,10 @@
-Todos los profesores
+<h2> Buscar Profesores</h2>
+    <form action="/profesores" method="GET">
+    <label>DNI</label>
+    <input type="text" name="dni" value="<%= searchOptions.dni %>">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% profesores.forEach(profesor =>{ %>
+    <div> <%= profesor.dni %> </div>
+<% }) %>

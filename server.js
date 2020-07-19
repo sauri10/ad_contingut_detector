@@ -6,6 +6,10 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express')//
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+/* 'body-parser' permite interactuar con las diferentes instrucciones REST como:
+'POST', 'PUT', 'DELETE'
+*/
+const bodyParser= require('body-parser')
 
 // Se establece la dirección del router que queremos utilizar
 const indexRouter = require('./routes/index')
@@ -23,7 +27,8 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 // Se establece la carpeta en donde estará toda la información pública
 // de la aplicación (css, imagenes, ..,)
-app.use(express.static('public'))//
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
 const mongoose = require('mongoose')
     mongoose.connect(process.env.DATABASE_URL, {
