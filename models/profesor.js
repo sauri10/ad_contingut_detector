@@ -43,4 +43,4 @@ const profesorSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('profesor', profesorSchema)
+module.exports = mongoose.model('Profesor', profesorSchema)

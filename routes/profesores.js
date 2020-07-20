@@ -14,14 +14,12 @@ router.get('/', async (req, res) => {
     try{
         const profesores = await Profesor.find(searchOptions) //Para encontrar todos los Profesores
 
-        console.log(profesores)
         res.render('profesores/index', {
             profesores: profesores,
             searchOptions: req.query
         })
 
-    } catch (err) {
-        console.log(err)//
+    } catch {
         res.redirect('/')
     }
 })
@@ -48,8 +46,8 @@ router.post('/', async (req, res) => {
         const newProfesor = await profesor.save()
         //res.redirect(`profesores/${newProfesor.id}`)
         res.redirect(`profesores`)
-    }catch (err){
-        console.log(err)
+    }catch {
+
         res.render('profesores/alta', {
             profesor: profesor,
             errorMessage: 'Error en el alta del profesor'

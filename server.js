@@ -15,6 +15,10 @@ const bodyParser= require('body-parser')
 const indexRouter = require('./routes/index')
 // Router para los profesores
 const profesorRouter = require('./routes/profesores')
+// Router para los cursos
+const cursoRouter = require('./routes/cursos')
+// Router para las asignaturas
+const asignaturaRouter = require('./routes/asignaturas')
 
 app.set('view engine', 'ejs')
 
@@ -43,6 +47,8 @@ db.once('open', () => console.log('Conected to Mongoose'))
 app.use('/', indexRouter)
 
 app.use('/profesores', profesorRouter)
+app.use('/cursos', cursoRouter)
+app.use('/asignaturas', asignaturaRouter)
 
 // Se establce el puerto por el cual el servidor ejecutará la aplicación∫
 app.listen(process.env.PORT || 3000)
