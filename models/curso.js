@@ -16,13 +16,12 @@ const cursoSchema = new mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
-    }
-    /*
+    },
     asignatura: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Asignatura'
-    }*/
+    }
     /* Añadir luego el profesor
     profesor: {
     type: mongoose.Schema.Types.ObjectId,

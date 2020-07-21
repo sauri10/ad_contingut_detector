@@ -40,15 +40,22 @@ router.post('/', async (req, res) => {
     const curso = new Curso({
         codigoCurso: req.body.codigoCurso
     })
+
     /*
-     * Si(existeAsignatura){
-     *      
+     * const datosFormat = formatDatosAsignatura(codigoCurso) // Los datos de la asignatura se obtienen a partir del código del curso
+     * let asignatura = Asignatura.find(datosFormat)
+     * Si(existeAsignatura()){
+     *      asignatura: asignatura.id
      * } si_no{
-     *      Crear_asignatura
+     *      let anoAcademico = datosFormat(0)
+     *      let codigoAsignatura = datosFormat(1)
+     *      Crear_asignatura(anoAcademico, codigoAsignatura)
      * }
      *      
      */
-    try{
+    try {
+      
+        // const newAsignatura //Utilizaremos transacciones para crear las DB
         const newCurso = await curso.save()
         //res.redirect(`profesores/${newCurso.id}`)
         res.redirect(`cursos`)
@@ -74,5 +81,16 @@ async function renderNewPage(res, curso, hasError = false) {
         res.redirect('/cursos')
     }
 }
+
+/* El código del curso (codigoCurso) tiene el formato 'A2019202307101' 
+ * del cual los primeros 7 digitos, corresponden al año académico 'A201920'
+ * Los siguientes 5 dígitos, corresponden al código de la asignatura '23071'
+ * y los últimos 2 dígitos, al grupo '01'.
+ * Este método permite obtener el código de la asignatura
+*/
+function formatCodigoAsignatura(codigoCurso) {
+
+}
+
 
 module.exports = router
