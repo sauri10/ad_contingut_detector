@@ -43,3 +43,5 @@ const profesorSchema = new mongoose.Schema({
         validate: validarEmail
     }
 })
+
+module.exports = mongoose.model('Profesor', profesorSchema)
