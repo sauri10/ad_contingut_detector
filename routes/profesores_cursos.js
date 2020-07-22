@@ -25,14 +25,15 @@ router.get('/', async (req, res) => {
     } catch{
         res,redirect('/')
     }
-    
+
 })
 
 /* Ruta formulario de alta del curso.- Sirve para desplegar el formulario
  * de alta del profesor
  */
 router.get('/alta', async (req, res) => {
-    renderNewPage(res, new Curso())
+    res.send('Hola')
+    //renderNewPage(res, new Curso())
 })
 
 /* Ruta de creaci�n de un curso
@@ -85,7 +86,7 @@ async function renderNewPage(res, curso, hasError = false) {
     }
 }
 
-/* El código del curso (codigoCurso) tiene el formato 'A2019202307101' 
+/* El código del curso (codigoCurso) tiene el formato 'A2019202307101'
  * del cual los primeros 7 digitos, corresponden al año académico 'A201920'
  * Los siguientes 5 dígitos, corresponden al código de la asignatura '23071'
  * y los últimos 2 dígitos, al grupo '01'.

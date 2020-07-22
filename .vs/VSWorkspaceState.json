@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\routes",
-    "\\routes\\solicitudes",
-    "\\views",
-    "\\views\\layouts"
+    "\\views\\profesores"
   ],
-  "SelectedNode": "\\routes\\solicitudes\\profesores.js",
+  "SelectedNode": "\\app.js",
   "PreviewInSolutionExplorer": false
 }
