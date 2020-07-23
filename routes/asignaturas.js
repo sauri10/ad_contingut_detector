@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
      */
     const asignatura = new Asignatura({
         codigoAsignatura: req.body.codigoAsignatura
+
     })
 })
 

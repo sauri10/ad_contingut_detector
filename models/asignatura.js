@@ -16,7 +16,7 @@ const cursoSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    anoAcademico: {
+    anoAcademico: { // Es un string con el formato (aaaa - aaaa). Ej: 2019-2020
         type: Date, // Hacer una funcion para devolver el año académico
         required: true
     }
