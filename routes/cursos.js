@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Curso = require('../models/curso')
+const Asignatura = require('../models/asignatura')
 
 /* Ruta de listar todos los cursos */
 router.get('/', async (req, res) => {
@@ -37,26 +38,28 @@ router.get('/alta', async (req, res) => {
 /* Ruta de creaci�n de un curso
  */
 router.post('/', async (req, res) => {
+    // Se supone que el formato de codigoCurso, siempre sera el correcto
+    const datosFormat = formatCodigoAsignatura(req.body.codigoCurso) // Los datos de la asignatura se obtienen a partir del código del curso
+    const asignatura = await Asignatura.findOne({codigoAsignatura: datosFormat.codigoAsignatura})
     const curso = new Curso({
-        codigoCurso: req.body.codigoCurso
+        codigoCurso: req.body.codigoCurso,
+        grupo: datosFormat.grupo
     })
 
-    /*
-     * const datosFormat = formatDatosAsignatura(codigoCurso) // Los datos de la asignatura se obtienen a partir del código del curso
-     * let asignatura = Asignatura.find(datosFormat)
-     * Si(existeAsignatura()){
-     *      asignatura: asignatura.id
-     * } si_no{
-     *      let anoAcademico = datosFormat(0)
-     *      let codigoAsignatura = datosFormat(1)
-     *      Crear_asignatura(anoAcademico, codigoAsignatura)
-     * }
-     *      
-     */
     try {
-      
-        // const newAsignatura //Utilizaremos transacciones para crear las DB
-        const newCurso = await curso.save()
+        if(asignatura != null && asignatura != ''){ // Si existe asignatura
+            console.log("EXISTE LA ASIGNATURA POR LO TANTO NO LA CREO")
+            curso.asignatura = asignatura.id // asignamos el ID de la asignatura al curso
+            const newCurso = await curso.save()
+        } else{
+            const asignatura = new Asignatura({
+                anoAcademico: datosFormat.anoAcademico,
+                codigoAsignatura: datosFormat.codigoAsignatura
+            })
+            const newAsignatura = await asignatura.save()
+            curso.asignatura = newAsignatura.id
+            const newCurso = await curso.save()
+        }
         //res.redirect(`profesores/${newCurso.id}`)
         res.redirect(`cursos`)
     } catch (err) {
@@ -89,8 +92,16 @@ async function renderNewPage(res, curso, hasError = false) {
  * Este método permite obtener el código de la asignatura
 */
 function formatCodigoAsignatura(codigoCurso) {
-
+    let i_anyo=7, i_cod=12, i_grupo=14
+    let datos =  codigoCurso.substring(0, i_anyo) + "," + codigoCurso.substring(i_anyo, i_cod) + "," + codigoCurso.substring(i_cod, i_grupo)
+    datos = datos.split(',')
+    return {
+        anoAcademico: datos[0],
+        codigoAsignatura: datos[1],
+        grupo: datos[2]
+    }
 }
+
 
 
 module.exports = router

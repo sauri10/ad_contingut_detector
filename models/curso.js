@@ -17,6 +17,10 @@ const cursoSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
+    /*Recursos: { // Se actualiza con las incidencias
+        type: Boolean,
+        required: true
+    },*/
     asignatura: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

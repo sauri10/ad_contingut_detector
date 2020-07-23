@@ -20,6 +20,8 @@ const cursoRouter = require('./routes/cursos')
 // Router para las asignaturas
 const asignaturaRouter = require('./routes/asignaturas')
 
+const profesor_cursoRouter = require('./routes/profesores_cursos')
+
 app.set('view engine', 'ejs')
 
 //Se establece la carpeta donde estaran almacenadas las vistas de la aplicación
@@ -50,6 +52,7 @@ app.use('/', indexRouter)
 app.use('/profesores', profesorRouter)
 app.use('/cursos', cursoRouter)
 app.use('/asignaturas', asignaturaRouter)
+app.use('/profesores_cursos', profesor_cursoRouter)
 
 // Se establce el puerto por el cual el servidor ejecutará la aplicación∫
 app.listen(process.env.PORT || 3000)

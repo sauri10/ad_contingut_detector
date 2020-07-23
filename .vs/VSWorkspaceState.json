@@ -5,9 +5,8 @@
     "\\routes",
     "\\views",
     "\\views\\cursos",
-    "\\views\\partials",
-    "\\views\\profesores"
+    "\\views\\profesores_cursos"
   ],
-  "SelectedNode": "\\models\\curso.js",
+  "SelectedNode": "\\routes\\profesores_cursos.js",
   "PreviewInSolutionExplorer": false
 }
