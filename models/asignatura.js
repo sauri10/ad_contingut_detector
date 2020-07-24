@@ -5,7 +5,8 @@ var validate = require('mongoose-validator')
 const cursoSchema = new mongoose.Schema({
     codigoAsignatura: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     nombreAsignatura: { // Nombre de la asignatura. Ej: Matemáticas II
         type: String,
@@ -16,7 +17,7 @@ const cursoSchema = new mongoose.Schema({
         required: false
     },
     anoAcademico: {
-        type: Date, // Hacer una funcion para devolver el año académico
+        type: String, // Hacer una funcion para devolver el año académico
         required: true
     }
 })

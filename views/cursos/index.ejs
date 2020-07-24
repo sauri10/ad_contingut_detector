@@ -1,0 +1,24 @@
+<h2> Buscar Cursos</h2>
+    <form action="/cursos" method="GET">
+	<div>
+        <label>Código del curso:</label>
+        <input type="text" name="codigoCurso" value="<%= searchOptions.codigoCurso %>">
+	</div>
+		<div>
+			<label>Dado de alta después de la fecha:</label>
+			<input type="date" name="publicadoDespues" value="<%= searchOptions.publicadoDespues %>">
+		</div>
+		<div>
+			<label>Dado de alta antes de la fecha:</label>
+			<input type="date" name="publicadoAntes" value="<%= searchOptions.publicadoAntes %>">
+		</div>
+		<button type="submit">Search</button>
+</form>
+<br>
+	<div>
+		<% cursos.forEach(curso =>{ %>
+		<div>
+			<%= curso.codigoCurso %>
+		</div>
+		<% }) %>
+	</div>
