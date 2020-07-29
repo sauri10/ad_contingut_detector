@@ -14,6 +14,7 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "http-errors": "^1.6.3",
+    "imap": "^0.8.19",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.23",
     "mongoose-validator": "^2.1.0",

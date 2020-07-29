@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose')
 const router = express.Router();
@@ -6,21 +7,21 @@ const Curso = require('../models/curso')
 const Asignatura = require('../models/asignatura')
 const Profesor_curso = require('../models/profesor_curso')
 
-/* Ruta de listar todos los cursos */
+// Ruta de listar todos los cursos
 router.get('/', async (req, res) => {
     res.send("Todos los profesores, cursos y asignaturas");
 
 })//
 
-/* Ruta formulario de alta del curso.- Sirve para desplegar el formulario
- * de alta del profesor
- */
+//  Ruta formulario de alta del curso.- Sirve para desplegar el formulario
+// de alta del profesor
+
 router.get('/alta', async (req, res) => {
     renderNewPage(res, new Profesor(), new Curso())
 })
 
-/* Ruta de creaci�n de un curso
- */
+// Ruta de creaci�n de un curso
+//
 router.post('/', async (req, res) => {
     // Se supone que el formato de codigoCurso, siempre sera el correcto
     let asignatura = new Asignatura()
@@ -89,51 +90,8 @@ router.post('/', async (req, res) => {
         // ending the session
 
         session.endSession();
-    }//
-    /*
-    try {
+    }
 
-        asignatura = setCollection(asignatura, datosFormat)
-        curso = setCollection(curso, asignatura)
-
-
-
-        if (asignatura != null && asignatura != '') { // Si existe asignatura
-
-            curso.asignatura = asignatura.id // asignamos el ID de la asignatura al curso
-
-        } else { // si no existe la asignatura
-            const asignatura = new Asignatura({
-                anoAcademico: datosFormat.anoAcademico,
-                codigoAsignatura: datosFormat.codigoAsignatura
-            })
-            const newAsignatura = await asignatura.save()
-            curso.asignatura = newAsignatura.id
-
-        }
-        const newCurso = await curso.save()
-        const newProfesor = await profesor.save()
-        const profesor_curso = new Profesor_curso({
-            profesor: newProfesor.id,
-            curso: newCurso.id
-        })
-        const newProfesor_curso = await profesor_curso.save()
-        //res.redirect(`profesores/${newCurso.id}`)
-        res.redirect(`profesores_cursos`)
-
-        await session.commitTransaction();
-    } catch (err) {
-        console.log(err)
-        renderNewPage(res, profesor, curso, true)
-        res.render('profesores_cursos/alta', {
-            curso: curso,
-            errorMessage: 'Error en el alta del profesor'
-        })
-        await session.abortTransaction();
-    } finally {
-        // ending the session
-        session.endSession();
-    }*/
 })
 
 async function renderNewPage(res, profesor, curso, hasError = false) {
@@ -157,12 +115,12 @@ function existeDocumento(collection) {
     }
 }
 
-/* El código del curso (codigoCurso) tiene el formato 'A2019202307101'
- * del cual los primeros 7 digitos, corresponden al año académico 'A201920'
- * Los siguientes 5 dígitos, corresponden al código de la asignatura '23071'
- * y los últimos 2 dígitos, al grupo '01'.
- * Este método permite obtener el código de la asignatura
-*/
+ //    El código del curso (codigoCurso) tiene el formato 'A2019202307101'
+ // * del cual los primeros 7 digitos, corresponden al año académico 'A201920'
+ // * Los siguientes 5 dígitos, corresponden al código de la asignatura '23071'
+ // * y los últimos 2 dígitos, al grupo '01'.
+ // * Este método permite obtener el código de la asignatura
+
 function formatCodigoAsignatura(codigoCurso) {
     let i_anyo=7, i_cod=12, i_grupo=14
     let datos =  codigoCurso.substring(0, i_anyo) + "," + codigoCurso.substring(i_anyo, i_cod) + "," + codigoCurso.substring(i_cod, i_grupo)
