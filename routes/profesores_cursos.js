@@ -10,7 +10,7 @@ const Profesor_curso = require('../models/profesor_curso')
 router.get('/', async (req, res) => {
     res.send("Todos los profesores, cursos y asignaturas");
 
-})
+})//
 
 /* Ruta formulario de alta del curso.- Sirve para desplegar el formulario
  * de alta del profesor
@@ -23,42 +23,83 @@ router.get('/alta', async (req, res) => {
  */
 router.post('/', async (req, res) => {
     // Se supone que el formato de codigoCurso, siempre sera el correcto
-    
+    let asignatura = new Asignatura()
+    let curso = new Curso()
+    let profesor = new Profesor()
+    let profesor_curso = new Profesor_curso()
+
     const datosFormat = formatCodigoAsignatura(req.body.codigoCurso) // Los datos de la asignatura se obtienen a partir del código del curso
-
+    const session = await mongoose.startSession();
+    session.startTransaction();
     try {
-        const session = await mongoose.startSession();
-        session.startTransaction();
-        let asignatura = await Asignatura.findOne({ codigoAsignatura: datosFormat.codigoAsignatura })
-        
-        let curso = await Curso.findOne({ codigoCurso: req.body.codigoCurso })
-        let profesor = await Profesor.findOne({ dni: req.body.dni })
-    
 
-        asignatura = await setDocumento(asignatura, datosFormat).save()
-        console.log(asignatura)
-        const paramsCurso = {
-            codigoCurso: req.body.codigoCurso,
-            grupo: datosFormat.grupo,
-            asignatura: asignatura.id
+        // Si falla alguna de las
+        let newAsignatura = await Asignatura.findOne({ codigoAsignatura: datosFormat.codigoAsignatura }, null, {session})
+        let newCurso = await Curso.findOne({ codigoCurso: req.body.codigoCurso }, null, {session})
+        let newProfesor = await Profesor.findOne({ dni: req.body.dni }, null, {session})
+
+        if (!existeDocumento(newAsignatura)) {
+            newAsignatura = await setDocumento(asignatura, datosFormat)
+            await newAsignatura.save()
         }
-        curso = await setDocumento(curso, paramsCurso).save()
-        profesor = await setDocumento(profesor, req.body).save()
+        if (!existeDocumento(newProfesor)) {
+            newProfesor = await setDocumento(profesor, req.body)
+            await newProfesor.save()
+        }
+        if (!existeDocumento(newCurso)) {
+            const paramsCurso = {
+                codigoCurso: req.body.codigoCurso,
+                grupo: datosFormat.grupo,
+                asignatura: asignatura.id
+            }
+            newCurso = await setDocumento(curso, paramsCurso)
+            await newCurso.save()
+        }
+        // Queremos encontrar el registro y hacerlo parte de la transacción, de esta manera si lo encontramos, interrumpimos la ejecución
 
-        
+        let newProfesor_curso = await Profesor_curso.findOne({
+            profesor: newProfesor.id,
+            curso: newCurso.id
+        }, null, { session })
+
+
+        if (!existeDocumento(newProfesor_curso)) {
+            const paramsProfesor_curso = {
+                profesor: newProfesor.id,
+                curso: newCurso.id
+            }
+            newProfesor_curso = await setDocumento(profesor_curso, paramsProfesor_curso)
+            await newProfesor_curso.save()
+        } else {
+            console.log("Se ha encontrado el documento Profesor_curso: " + newProfesor_curso)
+            throw 'Se ha encontrado el profesor'//
+        }
+
+
+        await session.commitTransaction();
+        //res.redirect(`profesores/${newCurso.id}`)
+        res.redirect(`profesores_cursos`)
+
     } catch (err){
         console.log(err)
-    }
+        await session.abortTransaction();
+        renderNewPage(res, profesor, curso, true)
+
+    } finally {
+        // ending the session
+
+        session.endSession();
+    }//
     /*
     try {
 
         asignatura = setCollection(asignatura, datosFormat)
         curso = setCollection(curso, asignatura)
 
-        
+
 
         if (asignatura != null && asignatura != '') { // Si existe asignatura
-            
+
             curso.asignatura = asignatura.id // asignamos el ID de la asignatura al curso
 
         } else { // si no existe la asignatura
@@ -101,10 +142,18 @@ async function renderNewPage(res, profesor, curso, hasError = false) {
             profesor: profesor,
             curso: curso
         }
-        if (hasError) params.errorMessage = 'Error al crear el curso'
+        if (hasError) params.errorMessage = 'Error al dar de alta profesores o cursos'
         res.render('profesores_cursos/alta', params)
     } catch {
         res.redirect('/profesores_cursos')
+    }
+}
+
+function existeDocumento(collection) {
+    if (collection != null && collection != '') {
+        return true
+    } else {
+        return false
     }
 }
 
@@ -125,42 +174,37 @@ function formatCodigoAsignatura(codigoCurso) {
     }
 }
 
-function setDocumento(collection, params) {
-    const model = collection.constructor.modelName
-    console.log(model)
+function setDocumento(nomCollection, params) {
+    const model = nomCollection.constructor.modelName
     switch (model) {
         case 'Asignatura':
-            if (collection != null && collection != '') {
-                return collection
-            } else {
-                const asignatura = new Asignatura({
-                    anoAcademico: params.anoAcademico,
-                    codigoAsignatura: params.codigoAsignatura
-                })
-                return asignatura
-            }
+            const asignatura = new Asignatura({
+                anoAcademico: params.anoAcademico,
+                codigoAsignatura: params.codigoAsignatura
+            })
+            return asignatura
             break
         case 'Curso':
-            if (collection != null && collection != '') {
-                return collection
-            } else {
-                const curso = new Curso({
-                    codigoCurso: params.codigoCurso,
-                    grupo: params.grupo,
-                    asignatura: params.asignatura
-                })
-                return curso
-            }
+            const curso = new Curso({
+                codigoCurso: params.codigoCurso,
+                grupo: params.grupo,
+                asignatura: params.asignatura
+            })
+            return curso
             break
         case 'Profesor':
-            if (collection != null && collection != '') {
-                return collection
-            } else {
-                const profesor = new Profesor({
-                    dni: params.dni
-                })
-                return profesor
-            }
+            const profesor = new Profesor({
+                dni: params.dni
+            })
+            return profesor
+            break
+        case 'Profesor_curso':
+            const profesor_curso = new Profesor_curso({
+                profesor: params.profesor,
+                curso: params.curso
+            })
+            return profesor_curso
+            break
     }
 
 }

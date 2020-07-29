@@ -7,16 +7,16 @@ const profesorSchema = new mongoose.Schema({
     profesor: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Profesor',
-        unique: true
+        ref: 'Profesor'
+
     },
     curso: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Curso',
-        unique: true
+        ref: 'Curso'
     }
 
 })
+profesorSchema.index({ "profesor" : 1, "curso" : 1 }, { unique : true })
 
 module.exports = mongoose.model('Profesor_curso', profesorSchema)
