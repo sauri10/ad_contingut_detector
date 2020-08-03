@@ -12,9 +12,13 @@ const expressLayouts = require('express-ejs-layouts')
 const bodyParser= require('body-parser')
 /* "Imap" permite gestionar una cuenta de email
 */
+/*
 const Imap = require('imap')
 const inspect = require('util').inspect
-
+const fs = require('fs')
+const DomParser = require('dom-parser')
+*/
+const imap = require('./aplicaciones/GestionEmail')
 // Se establece la dirección del router que queremos utilizar
 const indexRouter = require('./routes/index')
 // Router para los profesores
@@ -50,6 +54,8 @@ const db = mongoose.connection
 db.on('error', error => console.log(error))
 db.once('open', () => console.log('Conected to Mongoose'))
 
+imap.leerEmail()
+/*
 const imap = new Imap({
     user: 'MMR544',
     password: 'RMakhoul02071978',
@@ -58,14 +64,131 @@ const imap = new Imap({
     tls: true
 })
 
+var buffer = ''
+var docHtml = ''
+
 function openInbox(cb) {
     imap.openBox('Modificacio_asignatura', true, cb);//
 }
 
-//Función que se ejecuta cuando llega un nuevo email el correo electrónico
-imap.on("mail", mail => {
-    console.log("New mail arrived 1");
+imap.once('ready', function () {
+    openInbox(function (err, box) {
+        if (err) throw err;
+        imap.search(['UNSEEN', ['SUBJECT', 'Modificació professor/a grup d\'asignatura de teleeducació.']], function (err, results) {
+            if (err) throw err;
+            console.log("El numero de emails encontrados son: "+ results.length)
+            var f = imap.fetch(results, { bodies: '1', markSeen: true });
+            f.on('message', function (msg, seqno) {
+                console.log('Message #%d ' + seqno);
+                console.log('Message type ' + msg.text)
+                var prefix = '(#' + seqno + ') ';
+                msg.on('body', function (stream, info) {
+                    stream.on('data', function (chunk) {
+                        buffer += chunk.toString('utf8');
+                        //docHtml = parser.parseFromString(buffer)
+                        //console.log("BUFFER" + buffer.toString())
+
+                    })
+                    stream.once('end', function () {
+                        if (info.which === '1') {
+                            console.log("BUFFER" + buffer)
+                        }
+
+
+                    });
+                    console.log(prefix + 'Body');
+                    stream.pipe(fs.createWriteStream('msg-' + seqno + '-body.txt'));
+                });
+                msg.once('attributes', function (attrs) {
+                    console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
+                });
+                msg.once('end', function () {
+                    console.log(prefix + 'Finished');
+                });
+            });
+            f.once('error', function (err) {
+                console.log('Fetch error: ' + err);
+            });
+            f.once('end', function () {
+                console.log('Done fetching all messages!');
+                imap.end();
+            });
+        });
+    });
 });
+
+imap.once('error', function (err) {
+    console.log(err);
+});
+
+imap.once('end', function () {
+    console.log('Connection ended');
+});
+
+imap.connect();
+*/
+/*
+imap.once('ready', function() {
+    openInbox(function(err, box) {
+        if (err) throw err;
+        // función que nos avisa cuando llega un nuevo email
+        imap.on("mail", mail => {
+            console.log("New mail arrived 1");
+        });
+        // Funcion que lee emails
+        var f = imap.seq.fetch(box.messages.total + ':*', { bodies: ['HEADER.FIELDS (FROM)','TEXT'] });
+        f.on('message', function(msg, seqno) {
+            console.log('Message #%d', seqno);
+            var prefix = '(#' + seqno + ') ';
+            msg.on('body', function(stream, info) {
+                if (info.which === 'TEXT')
+                    console.log(prefix + 'Body [%s] found, %d total bytes', inspect(info.which), info.size);
+                var buffer = '', count = 0;
+                stream.on('data', function(chunk) {
+                    count += chunk.length;
+                    buffer += chunk.toString('utf8');
+                    if (info.which === 'TEXT')
+                        console.log(prefix + 'Body [%s] (%d/%d)', inspect(info.which), count, info.size);
+                });
+                stream.once('end', function() {
+                    if (info.which !== 'TEXT')
+                        console.log(prefix + 'Parsed header: %s', inspect(Imap.parseHeader(buffer)));
+                    else
+                        console.log(prefix + 'Body [%s] Finished', inspect(info.which));
+                });
+            });
+            msg.once('attributes', function(attrs) {
+                console.log(prefix + 'Attributes: %s', inspect(attrs, false, 8));
+            });
+            msg.once('end', function() {
+                console.log(prefix + 'Finished');
+            });
+        });
+        f.once('error', function(err) {
+            console.log('Fetch error: ' + err);
+        });
+        f.once('end', function() {
+            console.log('Done fetching all messages!');
+            imap.end();
+        });
+    });
+});
+
+
+    imap.once('error', function(err) {
+        console.log(err);
+    });
+
+    imap.once('end', function() {
+        console.log('Connection ended');
+    });
+
+    imap.connect();
+*/
+//Función que se ejecuta cuando llega un nuevo email el correo electrónico
+// imap.on("mail", mail => {
+//     console.log("New mail arrived 1");
+// });
 
 /*imap.once('ready', function() {
     openInbox(function(err, box) {
