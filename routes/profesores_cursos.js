@@ -6,6 +6,7 @@ const Profesor = require('../models/profesor')
 const Curso = require('../models/curso')
 const Asignatura = require('../models/asignatura')
 const Profesor_curso = require('../models/profesor_curso')
+const imap = require('imap')
 
 // Ruta de listar todos los cursos
 router.get('/', async (req, res) => {
@@ -21,13 +22,16 @@ router.get('/alta', async (req, res) => {
 })
 
 // Ruta de creaci�n de un curso
-//
+
 router.post('/', async (req, res) => {
     // Se supone que el formato de codigoCurso, siempre sera el correcto
     let asignatura = new Asignatura()
     let curso = new Curso()
     let profesor = new Profesor()
     let profesor_curso = new Profesor_curso()
+
+    // Obtener el objeto email con los datos del email
+
 
     const datosFormat = formatCodigoAsignatura(req.body.codigoCurso) // Los datos de la asignatura se obtienen a partir del código del curso
     const session = await mongoose.startSession();
