@@ -1,0 +1,37 @@
+/*[{
+  "subject":"Modificació professor/a grup d'asignatura de teleeducació.",
+  "operacion":"Alta de profesores en cursos",
+  "palabraClaveEmail":"afegit",
+  "regexDni":"\/\\s\\d{8}\\s\/g ",
+  "regexCodCurso":"\/[A]\\d{13}\/g"
+}]*/
+
+[{
+  "subject":"Modificació professor/a grup d'asignatura de teleeducació.",
+  "operacion":"Baja de profesores en cursos",
+  "palabraClaveEmail":"esborrat",
+  "regexDni":"\/\\s\\d{8}\\s\/g ",
+  "regexCodCurso":"\/[A]\\d{13}\/g"
+}]
+
+
+/*[{
+  "subject":"Modificació professor/a grup d'asignatura de teleeducació.",
+  "procesos":[{
+    "alta":[{
+      "operacion":"afegit",
+      "descripcion":"Alta de profesores en cursos"
+    }],
+    "baja":[{
+      "operacion":"esborrat",
+      "descripcion":"Bajade profesores en cursos"
+    }]
+  }],
+  "from":"control.gestio@uib.es"
+},
+{
+"from":"Otro",
+"subject":"otro"
+}
+]*/
+
