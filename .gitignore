@@ -1,2 +1,7 @@
 .env
-.node_modules
+node_modules
+comandosUtiles.txt
+data
+config_mutt.txt
+output.txt
+.vs

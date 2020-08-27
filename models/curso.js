@@ -3,9 +3,10 @@ var validate = require('mongoose-validator')
 
 // Schema es como una tabla en la DB
 const cursoSchema = new mongoose.Schema({
-    _id : { // el id es el código del curso
+    codigoCurso : { 
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     grupo: {
         type: Number, // MongoDB utiliza los mismos tipos que json (Number, String ...)
@@ -15,19 +16,17 @@ const cursoSchema = new mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
-    }
-    /*
+    },
+    /*Recursos: { // Se actualiza con las incidencias
+        type: Boolean,
+        required: true
+    },*/
     asignatura: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Asignatura'
-    }*/
-    /* Añadir luego el profesor
-    profesor: {
-    type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Profesor'
-},*/
+    },
+
 
 })
 

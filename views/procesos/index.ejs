@@ -1,0 +1,10 @@
+<h2>Buscar Procesos</h2>
+    <form action="/procesos" method="GET">
+    <label>Nombre del proceso</label>
+    <input type="text" name="nombre" value="<%= searchOptions.nombre %>">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% proceso.forEach(proceso =>{ %>
+    <div> <%= proceso.nombre %> </div>
+<% }) %>

@@ -1,0 +1,26 @@
+[
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta profesor curso",
+    "palabraClave":  "Afegit",
+    "descripcion": "Dar de alta un profesores en un curso"
+  },
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "baja profesor curso",
+    "palabraClave": "Esborrat",
+    "descripcion": "Dar de baja un profesores en un curso"
+  },
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta curso",
+    "palabraClave": "",
+    "descripcion": "Dar de alta un curso"
+  },
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta profesor",
+    "palabraClave": "",
+    "descripcion": "Dar de alta un profesor"
+  }
+]

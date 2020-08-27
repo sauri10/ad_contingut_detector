@@ -13,12 +13,12 @@ var validarDni = [
     })
 ]
 
-var validarEmail = [
+/*var validarEmail = [
     validate({
         validator: 'isEmail',
         message: 'insertar una direcci�n de correo electr�nico v�lida'
     })
-]
+]*/
 
 
 // Schema es como una tabla en la DB
@@ -38,8 +38,8 @@ const profesorSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: false,
-        validate: validarEmail
+        required: false
+        //validate: validarEmail
     }
 })
 

@@ -1,0 +1,28 @@
+<div>
+    <label>Nombre de la operación:</label>
+    <input type="text" name="nombre" value="<%= operacion.nombre %>">
+</div>
+
+<div>
+    <label>Proceso</label>
+    <select name="proceso">
+        <% procesos.forEach(proceso => { %>
+            <% if (proceso.id === operacion.proceso){ %>
+            <option selected label="<%= proceso.nombre %>" value="<%= proceso.id %>">
+                <% } else { %>
+        <option label="<%= proceso.nombre %>" value="<%= proceso.id %>">
+            <% } %>
+            <% }) %>
+    </select>
+</div>
+
+<div>
+    <label>Insertar palabra clave del email (opcional):</label>
+    <input type="text" name="palabraClaveEmail" value="<%= operacion.formatoFields.palabraClaveEmail %>">
+</div>
+
+<div>
+    <label>Datos a encontrar en el email:</label>
+    <input type="text" name="regexDni" value="<%= operacion.formatoFields.regexDni %>">
+</div>
+

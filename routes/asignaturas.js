@@ -1,23 +1,29 @@
 const express = require('express');
 const router = express.Router();
-const Curso = require('../models/asignatura')
+const Asignatura = require('../models/asignatura')
 
-/* Ruta de listar todos los cursos */
+/* Ruta de listar todas las asignaturas */
 router.get('/', async (req, res) => {
 
 })
 
-/* Ruta formulario de alta del curso.- Sirve para desplegar el formulario
- * de alta del profesor
+/* Ruta formulario de alta de asignatura.- Sirve para desplegar el formulario
+ * de alta de asignatura
  */
 router.get('/alta', (req, res) => {
 
 })
 
-/* Ruta de creaci�n de un curso
+/* Ruta de creaci�n de una asignatura
  */
 router.post('/', async (req, res) => {
+    /*
+     * 
+     */
+    const asignatura = new Asignatura({
+        codigoAsignatura: req.body.codigoAsignatura
 
+    })
 })
 
 module.exports = router

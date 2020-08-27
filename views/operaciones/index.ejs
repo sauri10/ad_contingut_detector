@@ -1,0 +1,12 @@
+<h2>Buscar Operaciones</h2>
+    <form action="/operaciones" method="GET">
+    <label>Nombre de la operacion</label>
+    <input type="text" name="nombre" value="<%= searchOptions.nombre %>">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% operaciones.forEach(operacion =>{ %>
+    <div> <%= operacion.nombre %> </div>
+    <div> <%= operacion.proceso.nombre %> </div>
+<% }) %>
+
