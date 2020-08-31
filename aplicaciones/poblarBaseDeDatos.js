@@ -26,10 +26,10 @@ async function poblarDB() {
 
         const operaciones = JSON.parse(await fs.readFileSync("./aplicaciones/BaseDeDatosJSON/operaciones.json", 'utf-8'));*/
 
-        //const proceso = await AltaDB(Proceso,"./aplicaciones/BaseDeDatosJSON/procesos.json")
-        //console.log("El proceso es: " + JSON.stringify(proceso))
+        const proceso = await AltaDB(Proceso,"./aplicaciones/BaseDeDatosJSON/procesos.json")
+        console.log("El proceso es: " + JSON.stringify(proceso))
 
-        const proceso = await Proceso.find()
+        //const proceso = await Proceso.find()
 
         let operacion = new Operacion()
 
@@ -61,7 +61,6 @@ async function poblarDB() {
 async function AltaDB(col1, ruta, col2, col1Clave, col2Clave){
     return new Promise(async (resolve, reject) => {
         let fichero=""
-        let updateColection=""
         try {
             //Leemos el fichero en el cual esta la coleccion a almacenarse en la DB
             fichero = JSON.parse(await fs.readFileSync(ruta, 'utf-8'));

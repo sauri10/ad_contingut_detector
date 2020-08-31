@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7ff0252-d151-4afc-8f23-8925bbb4cddc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/entradaEmail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json" beforeDir="false" afterPath="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json" beforeDir="false" afterPath="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js" beforeDir="false" afterPath="$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/incidencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/incidencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/operacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/operacion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/proceso.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/proceso.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,7 +66,7 @@
     <session id="-1314546827">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="28" />
+          <entry key="project.closed" value="29" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.109" value="1" />
@@ -93,8 +99,8 @@
           <entry key="ejs" value="43" />
           <entry key="env" value="8" />
           <entry key="gitignore" value="4" />
-          <entry key="js" value="99" />
-          <entry key="json" value="8" />
+          <entry key="js" value="103" />
+          <entry key="json" value="10" />
           <entry key="ts" value="1" />
           <entry key="txt" value="14" />
         </counts>
@@ -103,8 +109,8 @@
         <counts>
           <entry key=".env file" value="8" />
           <entry key="EJS" value="43" />
-          <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="99" />
+          <entry key="JSON" value="10" />
+          <entry key="JavaScript" value="103" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -114,8 +120,8 @@
           <entry key="ejs" value="1645" />
           <entry key="env" value="649" />
           <entry key="gitignore" value="60" />
-          <entry key="js" value="45481" />
-          <entry key="json" value="853" />
+          <entry key="js" value="46296" />
+          <entry key="json" value="937" />
           <entry key="txt" value="666" />
         </counts>
       </usages-collector>
@@ -123,8 +129,8 @@
         <counts>
           <entry key=".env file" value="649" />
           <entry key="EJS" value="1645" />
-          <entry key="JSON" value="853" />
-          <entry key="JavaScript" value="45481" />
+          <entry key="JSON" value="937" />
+          <entry key="JavaScript" value="46296" />
           <entry key="PLAIN_TEXT" value="726" />
         </counts>
       </usages-collector>
@@ -133,10 +139,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/procesos.js">
+        <entry file="file://$PROJECT_DIR$/models/proceso.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            <state relative-caret-position="150">
+              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -144,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/operacion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="310">
+              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -154,10 +172,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/operaciones.js">
+        <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            <state relative-caret-position="283">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -165,17 +183,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/incidencia.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="408">
+              <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/incidencias.js">
+        <entry file="file://$PROJECT_DIR$/models/entradaEmail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2700">
-              <caret line="180" column="89" selection-start-line="180" selection-start-column="89" selection-end-line="180" selection-end-column="89" />
+            <state relative-caret-position="214">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -192,8 +210,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+            <state relative-caret-position="1011">
+              <caret line="68" column="83" selection-start-line="68" selection-start-column="83" selection-end-line="68" selection-end-column="83" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -201,29 +219,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicaciones/GestionEmail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -280,8 +289,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/models/profesor.js" />
-        <option value="$PROJECT_DIR$/routes/asignaturas.js" />
         <option value="$PROJECT_DIR$/views/cursos/alta.ejs" />
         <option value="$PROJECT_DIR$/routes/profesores.js" />
         <option value="$PROJECT_DIR$/views/cursos/_form_fields.ejs" />
@@ -323,14 +330,16 @@
         <option value="$PROJECT_DIR$/views/operaciones/_form_fields.ejs" />
         <option value="$PROJECT_DIR$/routes/operaciones.js" />
         <option value="$PROJECT_DIR$/aplicaciones/procesos.txt" />
-        <option value="$PROJECT_DIR$/models/incidencia.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/models/inc_secretaria.js" />
+        <option value="$PROJECT_DIR$/models/entradaEmail.js" />
+        <option value="$PROJECT_DIR$/models/proceso.js" />
+        <option value="$PROJECT_DIR$/models/operacion.js" />
         <option value="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json" />
         <option value="$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json" />
-        <option value="$PROJECT_DIR$/models/proceso.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/models/operacion.js" />
         <option value="$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/models/incidencia.js" />
       </list>
     </option>
   </component>
@@ -372,6 +381,22 @@
               <item name="ad_contingut_detector" type="b2602c69:ProjectViewProjectNode" />
               <item name="ad_contingut_detector" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ad_contingut_detector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ad_contingut_detector" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicaciones" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ad_contingut_detector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ad_contingut_detector" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicaciones" type="462c0819:PsiDirectoryNode" />
+              <item name="BaseDeDatosJSON" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ad_contingut_detector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ad_contingut_detector" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -388,15 +413,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views/profesores" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/aplicaciones" />
       <recent name="$PROJECT_DIR$/views/operaciones" />
       <recent name="$PROJECT_DIR$/views/procesos" />
-      <recent name="$PROJECT_DIR$/routes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/profesores" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -471,18 +496,17 @@
       <workItem from="1598249408128" duration="1311000" />
       <workItem from="1598422957517" duration="12254000" />
       <workItem from="1598508178171" duration="339000" />
-      <workItem from="1598599641328" duration="333000" />
+      <workItem from="1598599641328" duration="5630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292608000" />
+    <option name="totallyTimeSpent" value="297905000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1490" height="771" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8445378" visible="true" weight="0.12661675" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8445378" visible="true" weight="0.12661675" />
       <window_info id="Structure" order="1" sideWeight="0.15546219" side_tool="true" weight="0.13890964" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -496,7 +520,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32863188" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3298969" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3298969" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -529,8 +553,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/msg-16-body.txt" />
-    <entry file="file://$PROJECT_DIR$/msg-22-body.txt" />
     <entry file="file://$PROJECT_DIR$/msg-23-body.txt" />
     <entry file="file://$PROJECT_DIR$/views/profesores_cursos/alta.ejs">
       <provider selected="true" editor-type-id="text-editor">
@@ -751,27 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/proceso.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/procesos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -779,27 +780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/operacion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/operaciones.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/incidencia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -819,32 +803,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/aplicaciones/GestionEmail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
+        <state relative-caret-position="378">
           <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/incidencia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/operacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/operaciones.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/incidencia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/entradaEmail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicaciones/poblarBaseDeDatos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1011">
+          <caret line="68" column="83" selection-start-line="68" selection-start-column="83" selection-end-line="68" selection-end-column="83" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/proceso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicaciones/BaseDeDatosJSON/procesos.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>

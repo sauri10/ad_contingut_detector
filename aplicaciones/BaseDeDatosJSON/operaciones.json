@@ -1,20 +1,29 @@
 [
   {
-    "proceso": "Proceso 1",
-    "nombre": "Alta de profesores en sus cursos",
-    "formatoFields": {
-      "palabraClaveEmail": "Afegit",
-      "regexDni": "\/\\s\\d{8}\\s\/g",
-      "regexCodCurso": "\/[A]\\d{13}\/g"
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta profesor curso",
+    "descripcion": "Dar de alta un profesores en un curso",
+    "formato": {
+      "palabraClave": "Afegit"
     }
   },
   {
-    "proceso": "Proceso 1",
-    "nombre": "Baja de profesores en sus cursos",
-    "formatoFields": {
-      "palabraClaveEmail": "Esborrat",
-      "regexDni": "\/\\s\\d{8}\\s\/g",
-      "regexCodCurso": "\/[A]\\d{13}\/g"
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "baja profesor curso",
+    "palabraClave": "Esborrat",
+    "descripcion": "Dar de baja un profesores en un curso",
+    "formato": {
+      "palabraClave": "Esborrat"
     }
+  },
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta curso",
+    "descripcion": "Dar de alta un curso"
+  },
+  {
+    "proceso": "Modificació professor/a grup d'asignatura de teleeducació.",
+    "nombre": "alta profesor",
+    "descripcion": "Dar de alta un profesor"
   }
 ]
