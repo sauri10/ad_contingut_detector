@@ -1,0 +1,18 @@
+GIT -- Comandos útiles
+// En este documento, se describirán los procesos 'git' más utilizados para este proyecto.
+
+FETCH
+// Este proceso nos permite obtener el repositorio del servidor remoto en el repositorio local
+	PROCESO DE FETCH:
+	Para este proyecto es necesario tener siempre actualizado el repositorio local de 2 diferentes equipos:
+
+		* git checkout -b nombre_branch		//Este comando crea una nueva rama (branch)
+		* git fetch origin curso_i_asig		// obtenemos el repositorio remoto desde el branch "curso_i_asig". "Origin" suele ser el nombre del master "branch"
+		* git branch -a						// Nos muestra todas las ramas locales. Aqui podremos ver cual es la nueva rama disponible que contiene el repositorio remoto descargado en el procedimiento anterior
+		* Para salir del modo consola presinar la letra 'q'
+		* git merge remotes/origin/curso_i_asig	// Unimos "merge" el repositorio remoto en la branch del repositorio actual
+
+CLONE
+// Este proceso nos permite clonar un proyecto en un respositorio de GitHub
+	
+	* git clone --single-branch --branch prepDb https://github.com/sauri10/ad_contingut_detector.git // Clonamos la rama prepDb del repositorio remoto dentro del repositorio local

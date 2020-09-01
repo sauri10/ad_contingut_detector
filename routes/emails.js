@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const inProfCurso = require('./incidencias')
+const inProfCurso = require('./entradasEmail')
 const axios = require('axios');
 const Curso = require('../models/curso')
 const Asignatura = require('../models/asignatura')

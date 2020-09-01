@@ -3,13 +3,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 }
 
-const express = require('express')//
+const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 /* 'body-parser' permite interactuar con las diferentes instrucciones REST como:
 'POST', 'PUT', 'DELETE'
 */
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')//
 /* "Imap" permite gestionar una cuenta de email
 */
 const Imap = require('imap')
@@ -18,7 +18,7 @@ const axios = require('axios');
 
 const Db = require('./aplicaciones/poblarBaseDeDatos')
 
-const Cp = require('./aplicaciones/InicializarProcOp')//
+const Cp = require('./aplicaciones/InicializarProcOp')
 
 const Gm = require('./aplicaciones/GestionEmail')
 
@@ -40,6 +40,8 @@ const emailRouter = require('./routes/emails')
 const procesoRouter = require('./routes/procesos')
 
 const operacionRouter = require('./routes/operaciones')
+
+const EntradasEmailRouter = require('./routes/entradasEmail')
 
 
 app.set('view engine', 'ejs')
@@ -66,7 +68,10 @@ const mongoose = require('mongoose')
     })
 const db = mongoose.connection
 db.on('error', error => console.log(error))
-db.once('open', () => console.log('Conected to Mongoose'))
+db.once('open', () => {
+    console.log('Conected to Mongoose')
+    //EntradasEmail.obtenerDatosProcesoOperacion()
+})
 
 
 /* 1. Establecer conexion al email con IMAP
@@ -107,9 +112,10 @@ const coneccion = async (imap) => {
 //Cp.inicializarOperacion(process.env.BAJA_PROF_CURSO)//
 //Cp.httpGetOperacion()//
 //Cp.inicializarProceso()
-Db.poblarDB()
+//Db.poblarDB()
 
 
+app.use('/entradasEmail', emailRouter)
 
 app.use('/emails', emailRouter)
 

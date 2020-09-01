@@ -1,4 +1,38 @@
+const express = require('express');
+const router = express.Router();
 const incidencia = require('../models/incidencia')
+const Operacion = ('../models/operacion')
+const Proceso = ('../models/proceso')
+const Curso = ('../models/curso')
+
+
+router.get('/', async (req, res) => {
+    try {
+        console.log("Estoy aqui")
+
+        let query = Proceso.find()
+
+        console.log("El proceso es: " + JSON.stringify(query))
+
+    } catch (err) {
+        console.log(err)
+    }    
+})
+
+async function obtenerDatosProcesoOperacion() {
+    try {
+        console.log("Estoy aqui")
+        
+        let query = Proceso.find()
+
+        console.log("El proceso es: " + JSON.stringify(query))
+
+    } catch (err) {
+        console.log(err)
+    }    
+
+}
+
 
 function ejecutarFormateo() {
     /*var arrEmail = [" Esborrat  el professor/a 43034972 al grup d'assignatura 20602-13 del 2019-20, que té vinculat el curs de teleeducació A2019202060213 ",
@@ -14,24 +48,12 @@ function ejecutarFormateo() {
     //console.log("El resultado es: "+ arrEmail.length)
 }
 
+//Funcion que obtiene un array de email, lo analiza y convierte sus elementos en documentos
 async function crearIncidencias(arrEmails) {
-
-    //return new Promise ((resolve, reject) =>{
-    formatearIncidencias(arrEmails)
-        .then((result) => {
-            console.log("crearIncidencias: " + JSON.stringify(result))
-        }).catch(e => {
-        console.log(e)
-    })
-    //crearIncidencias
-
-}
-
-
-function formatearIncidencias(arrEmails) {
     return new Promise((resolve, reject) => {
-        // Metodo que obtiene los datos necesarios para crear una nueva incidencia
+        // Array que almacenará las incidencias
         let incidencias = []
+        // Iterar por todos los elementos del array de emails y convertirlos en documentos EntradaEmail
         arrEmails.forEach(function (item, index) {
             incidencias.push(obtenerIncidencia(item, index)) //Obtenemos un array de promesas que se cumplen con "Promise.all" mas adelante
         });
@@ -46,6 +68,7 @@ function formatearIncidencias(arrEmails) {
             });
         //Si(email_es)
     })
+
 }
 
 function obtenerIncidencia(incidencia) {
@@ -100,7 +123,7 @@ function buscarDatosEmail(incidencia, mensaje) {
 
 function emailEsCorrecto(email) {
     return new Promise((resolve, reject) => {
-        let vProcesos = process.env.EMAILS_ACEPTADOS //Datos sobre los procesos admitidos
+        let vProcesos = Operacion.find('') //Datos sobre los procesos admitidos
         //console.log(arrEmails)
         let arrProcesosJSON = JSON.parse(vProcesos) //Convertimos los datos en objetos
         console.log("El tema es: " + email.subject)
@@ -266,3 +289,4 @@ function dividirCadena(cadena, separador) {
 
 exports.ejecutarFormateo = ejecutarFormateo
 exports.crearIncidencias = crearIncidencias
+exports.obtenerDatosProcesoOperacion = obtenerDatosProcesoOperacion
